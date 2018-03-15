@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title>Cadastro de Clientes</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content class="push-bottom-none">
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Nome" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div formGroupName="address">
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="País" formControlName="country">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Estado" formControlName="state">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Cidade" formControlName="city">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    <div layout="row" class="form-buttons">
+      <button mat-button [disabled]="clientForm.pristine" (click)="clearForm()">Limpar</button>
+      <button mat-button type="submit" color="primary" (click)="onSubmit()">Salvar</button>
+    </div>
+  </mat-card-actions>
+
+</mat-card>
+
+<router-outlet></router-outlet>

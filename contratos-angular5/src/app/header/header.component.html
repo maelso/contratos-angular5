@@ -1,0 +1,16 @@
+<header>
+	<div class="left-align">
+		<button mat-icon-button class="bg-transparent" (click)="toggleMenu()" mdTooltip="Main menu">
+			<mat-icon>menu</mat-icon>
+		</button>
+	</div>
+
+	<label> FrontEnd Jr 2018 </label>
+
+	<div class="right-align">
+		<button mat-icon-button class="bg-transparent" (click)="logout()" mdTooltip="Main menu">
+			<mat-icon>power_settings_new</mat-icon>
+		</button>
+	</div>
+</header>
+<app-menu [@slideInOut]="menuState"></app-menu>

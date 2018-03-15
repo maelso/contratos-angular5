@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-form-field {
+	width: 300px;
+}
+
+.mat-card {
+    transform: translatey(3rem);
+    margin-bottom: 3rem;
+}
+
+.mat-toolbar {
+	background: #0cb8f3 !important;
+	color: white;
+}
+
+.mat-sidenav{
+	background: #0cb8f3 !important;
+	color: white !important;
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.mat-nav-list {
+	background: #0cb8f3 !important;
+	color: white !important;
+	width:15rem;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.bg-transparent {
+	background: transparent !important;
+}
