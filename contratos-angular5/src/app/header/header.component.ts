@@ -27,10 +27,6 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit() { }
 
-	logout() {
-		this.router.navigate(['/login']);
-	}
-
 	toggleMenu() {
 		this.menuState = this.menuState === 'out' ? 'in' : 'out';
 	}

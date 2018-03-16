@@ -8,28 +8,28 @@ import { HeaderComponent } from '../header/header.component';
 export class MenuComponent implements OnInit {
 
 	routes: Object[] = [
-	// {
-	// 	title: 'Login',
-	// 	route: '/login',
-	// 	icon: 'account_circle',
-	// },
-	// {
-	// 	title: 'Dashboard',
-	// 	route: '/dashboard',
-	// 	icon: 'dashboard',
-	// },
-	{
-		title: 'Cliente',
-		route: '/cliente',
-		icon: 'account_circle',
-	}
+		// {
+		// 	title: 'Dashboard',
+		// 	route: '/dashboard',
+		// 	icon: 'dashboard',
+		// },
+		{
+			title: 'Clientes',
+			route: '/cliente',
+			icon: 'account_circle',
+		},
+		{
+			title: 'Contratos',
+			route: '/contrato',
+			icon: 'description',
+		}
 	];
 
 	constructor(private header: HeaderComponent) { }
 
-	ngOnInit() {}
+	ngOnInit() { }
 
-	toggleMenu(){
+	toggleMenu() {
 		this.header.toggleMenu();
 	}
 

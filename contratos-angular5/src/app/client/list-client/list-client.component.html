@@ -38,14 +38,23 @@
   <!-- Creation Date Column -->
   <ng-container matColumnDef="creation_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Criado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.creation_date | date:'dd/MM/yy hh:mm:ss a'}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.creation_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
   </ng-container>
 
   <!-- Modified Date Column -->
   <ng-container matColumnDef="modified_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.modified_date | date:'dd/MM/yy hh:mm:ss a'}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.modified_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
   </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Ações: </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon class="color-blue" (click)="editClient(element.id)">edit</mat-icon>
+        <mat-icon class="color-red" (click)="remove(element.id)" >delete</mat-icon>
+      </mat-cell>
+    </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

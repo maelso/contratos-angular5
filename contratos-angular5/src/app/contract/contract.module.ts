@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddContractComponent } from './add-contract/add-contract.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContractRoutingModule } from './contract.routing';
+import { ListContractComponent } from './list-contract/list-contract.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { ContractRoutingModule } from './contract.routing';
     SharedModule,
     ContractRoutingModule
   ],
-  declarations: [AddContractComponent]
+  declarations: [AddContractComponent, ListContractComponent]
 })
 export class ContractModule { }

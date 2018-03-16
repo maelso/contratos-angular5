@@ -16,11 +16,11 @@ export class ListClientComponent implements OnInit {
   clients: Client[];
   dataSource = [];
   data;
-  displayedColumns = ['name', 'country', 'state', 'city', 'creation_date', 'modified_date'];
+  displayedColumns = ['name', 'country', 'state', 'city', 'creation_date', 'modified_date', 'action'];
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private clientService: ClientService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.clientService.getClients().subscribe(
@@ -32,9 +32,9 @@ export class ListClientComponent implements OnInit {
     );
   }
 
-  setUpGrid(){
+  setUpGrid() {
     let _dataGrid = [];
-    for(let client of this.clients){
+    for (let client of this.clients) {
       this.dataSource = [];
       this.toString(client)
       _dataGrid.push(this.dataSource);
@@ -62,8 +62,24 @@ export class ListClientComponent implements OnInit {
     console.log("data.filter ", this.data);
   }
 
-  newClient(){
+  newClient() {
     this.router.navigate(['/cliente/add']);
+  }
+
+  remove(id: string) {
+    this.clientService.delete(id).subscribe(
+      res => {
+        const _data = this.data.data;
+        _data.pop(id);
+        this.data.data = _data;
+        /* >this.data.data.pop(id) Doesn't works dynamically, but if you replace the complete array then it works fine.*/
+      },
+      err => alert(err.message)
+    );
+  }
+  editClient(id: string): void {
+    let editUrl = `cliente/add;id=${id}`;
+    window.location.href = editUrl;
   }
 
 }

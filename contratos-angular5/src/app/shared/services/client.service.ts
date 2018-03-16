@@ -15,6 +15,8 @@ export class ClientService {
     }
 
     save(client: Client): Observable<Client> {
+        client.setCreationDate();
+        client.setModifiedDate();
         return this.http.post<Client>(this.getAPI(), client);
     }
 
@@ -24,6 +26,15 @@ export class ClientService {
 
     get(id: string): Observable<Client> {
         return this.http.get<Client>(`${this.getAPI()}/${id}`);
+    }
+
+    delete(id: string): Observable<Client> {
+        return this.http.delete<Client>(`${this.getAPI()}/${id}`);
+    }
+
+    put(id: string, client: Client): Observable<Client>{
+        client.setModifiedDate();
+        return this.http.put<Client>(`${this.getAPI()}/${id}`, client);
     }
 
 }
