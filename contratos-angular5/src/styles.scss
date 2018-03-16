@@ -5,6 +5,17 @@
 	width: 300px;
 }
 
+@media only screen and (min-width : 360px) {
+	.mat-table {
+		margin-bottom: 3rem;
+	}
+}
+@media only screen and (min-width : 768px) {
+	.mat-table {
+		margin: 0rem 3rem;
+	}
+}
+
 .mat-card {
     transform: translatey(3rem);
     margin-bottom: 3rem;

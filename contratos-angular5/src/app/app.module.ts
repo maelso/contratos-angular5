@@ -29,6 +29,7 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
   ],
 
   exports:[

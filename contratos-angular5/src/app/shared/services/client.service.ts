@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
-import 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
 import { Client } from '../models/client';
 
 @Injectable()
@@ -9,35 +9,22 @@ export class ClientService {
 
     protected apiUrl: string = 'http://0.0.0.0:3000/client';
 
-    constructor(private http: Http) { }
+    constructor(private http: HttpClient) { }
 
     getAPI() {
         return this.apiUrl;
     }
 
-    save(client: Client) {
-        let url = `${this.getAPI()}`;
-        return this.http.post(url, client.getApiPostData()).map((res: Response) => {
-            let results = res.json();
-            return results;
-        }).catch((error: Response | any) => {
-            let errorResponse = error.json(),
-                errorMessage = (errorResponse.ErrorId && errorResponse.Message) ?
-                    'Error ' + errorResponse.ErrorId + ': ' + errorResponse.Message : 'Error connecting to the API. Please try again.';
-            alert(errorMessage); window.location.reload(true);
-            return Observable.throw(error);
-        });
-
+    save(client: Client): Observable<Client> {
+        return this.http.post<Client>(this.getAPI(), client.getApiPostData());
     }
 
-    getClientes() {
-        let url = `${this.getAPI()}`;
-        return this.http.get(url)
-            .map((res: Response) => {
-                return res.json();
-            }).catch((error: Response | any) => {
-                return Observable.throw(error);
-            });
+    getClients(): Observable<Client[]> {
+        return this.http.get<Client[]>(this.getAPI());
+    }
+
+    get(id: string): Observable<Client> {
+        return this.http.get<Client>(`${this.getAPI()}/${id}`);
     }
 
 }

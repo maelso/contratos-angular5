@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address } from '../../shared/models/address';
 import { Client } from '../../shared/models/client';
 import { ClientService } from '../../shared/services/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-client',
@@ -14,6 +15,7 @@ export class AddClientComponent implements OnInit {
   clientForm: FormGroup;
 
   constructor(private fb: FormBuilder,
+              private router: Router,
               private clientService: ClientService
             ) { }
 
@@ -28,8 +30,9 @@ export class AddClientComponent implements OnInit {
       this.clientService.save(_client).subscribe(
         res => {
           this.clearForm();
+          this.router.navigate(['/cliente']);
         },
-				err => console.log('err ', err)
+				err => alert(err.message)
       );
     }
     else{
@@ -77,8 +80,7 @@ export class AddClientComponent implements OnInit {
     let client = new Client(
       this.clientForm.get('name').value,
       this.getAddress()
-    );
-    
+    );    
     return client;
   }
 

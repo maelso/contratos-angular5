@@ -1,10 +1,13 @@
-<p>
-  list-client works!
-</p>
+<p>.</p>
 
-<p>
-  list-client works!
-</p>
+<div class="filter-input">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<div layout="row" class="add-button">
+  <button mat-button class="right-align" color="primary" (click)="newClient()"><mat-icon>add</mat-icon>Novo Cliente</button>
+</div>
 
 <mat-table #table [dataSource]="data" matSort>
 
@@ -17,31 +20,31 @@
   <!-- Country Column -->
   <ng-container matColumnDef="country">
     <mat-header-cell *matHeaderCellDef mat-sort-header> País </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.address.country}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
   </ng-container>
 
   <!-- State Column -->
   <ng-container matColumnDef="state">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.address.state}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
   </ng-container>
 
   <!-- City Column -->
   <ng-container matColumnDef="city">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.address.city}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
   </ng-container>
 
   <!-- Creation Date Column -->
   <ng-container matColumnDef="creation_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Criado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.address.creation_date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.creation_date}} </mat-cell>
   </ng-container>
 
   <!-- Modified Date Column -->
   <ng-container matColumnDef="modified_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.address.modified_date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.modified_date}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

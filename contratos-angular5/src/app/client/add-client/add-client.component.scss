@@ -1,9 +1,15 @@
+.mat-card {
+	text-align: center;
+}
 .mat-card-subtitle {
 	padding-top: 2rem;
 	font-weight: bold;
 }
 
 .form-buttons {
-	padding-top: 1rem;
-    text-align: right;
+	padding-top: 0rem;
+}
+
+.clear-button {
+	margin-left: 7rem !important;
 }

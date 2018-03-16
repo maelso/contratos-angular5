@@ -6,7 +6,7 @@ import { ClientService } from './services/client.service';
 
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
-  MatMenuModule, MatToolbarModule, MatCardModule,
+  MatMenuModule, MatToolbarModule, MatCardModule, MatSortModule,
   MatAutocompleteModule, MatSelectModule, MatTableModule }  from '@angular/material';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatTabsModule, MatSlideToggleModule, MatButtonModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
-    MatAutocompleteModule, MatTableModule,
+    MatAutocompleteModule, MatTableModule, MatSortModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
   providers: [ ClientService ],
