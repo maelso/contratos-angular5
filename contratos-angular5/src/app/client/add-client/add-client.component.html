@@ -29,7 +29,7 @@
       <mat-card-actions>
         <div layout="row" class="form-buttons">
           <button mat-button class="clear-button" [disabled]="clientForm.pristine" (click)="clearForm()">Limpar</button>
-          <button mat-button type="submit" color="primary" (click)="onSubmit()">Salvar</button>
+          <button mat-button type="submit" color="primary" [disabled]="clientForm.pristine" (click)="onSubmit()">Salvar</button>
         </div>
       </mat-card-actions>
     </form>

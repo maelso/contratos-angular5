@@ -51,8 +51,8 @@
   <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef> Ações: </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <mat-icon class="color-blue" (click)="editClient(element.id)">edit</mat-icon>
-        <mat-icon class="color-red" (click)="remove(element.id)" >delete</mat-icon>
+        <mat-icon class="color-blue" matTooltip="Editar" (click)="editClient(element.id)">edit</mat-icon>
+        <mat-icon class="color-red" matTooltip="Remover" (click)="remove(element.id)" >delete</mat-icon>
       </mat-cell>
     </ng-container>
 

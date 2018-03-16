@@ -9,6 +9,12 @@
     cursor: pointer;
 }
 
+::ng-deep snack-bar-container.snack-custom-class {
+    background-color:forestgreen !important;
+    opacity: 0.8;
+    margin-bottom: 3rem !important;
+}
+
 @media only screen and (min-width : 360px) {
     .add-button {
         padding: 0rem 1rem;

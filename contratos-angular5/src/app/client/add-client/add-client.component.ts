@@ -15,6 +15,7 @@ export class AddClientComponent implements OnInit {
 
   clientForm: FormGroup;
   clientId: string;
+  selectedClient: Client;
   clientParamsSubscription: Subscription;
   editMode: boolean = false;
 
@@ -88,7 +89,7 @@ export class AddClientComponent implements OnInit {
   createForm() {
     this.clientForm = this.fb.group({
 
-      name: [null, [Validators.required, Validators.pattern("[a-zA-Z ]*"), Validators.minLength(3), Validators.maxLength(40)]],
+      name: [null, [Validators.required, Validators.pattern("[a-zA-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"), Validators.minLength(3), Validators.maxLength(50)]],
 
       address: this.fb.group({
         country: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
@@ -112,12 +113,16 @@ export class AddClientComponent implements OnInit {
       this.clientForm.get('name').value,
       this.getAddress()
     );
+    if(this.editMode && this.selectedClient){
+      client.creation_date = this.selectedClient.creation_date;
+    }
     return client;
   }
 
   getClientData(id: string) {
     this.clientService.get(id).subscribe(
       data => {
+        this.selectedClient = data;
         this.clientForm.patchValue({
           name: data.name,
           address: data.address

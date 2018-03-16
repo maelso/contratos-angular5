@@ -8,6 +8,7 @@ import { ContractService } from './services/contract.service';
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSortModule,
+  MatTooltipModule, MatSnackBarModule, MatDialogModule,
   MatAutocompleteModule, MatSelectModule, MatTableModule }  from '@angular/material';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatTabsModule, MatSlideToggleModule, MatButtonModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
     MatAutocompleteModule, MatTableModule, MatSortModule,
+    MatTooltipModule, MatSnackBarModule, MatDialogModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
   providers: [ ClientService, ContractService ],

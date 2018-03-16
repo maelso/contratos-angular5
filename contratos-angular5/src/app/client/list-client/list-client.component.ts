@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Client } from '../../shared/models/client';
 import { ClientService } from '../../shared/services/client.service';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatDialog, MatDialogRef, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -20,7 +20,9 @@ export class ListClientComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private clientService: ClientService,
-    private router: Router) { }
+              private router: Router,
+              private dialog: MatDialog,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.clientService.getClients().subscribe(
@@ -62,6 +64,14 @@ export class ListClientComponent implements OnInit {
     console.log("data.filter ", this.data);
   }
 
+  customFilter(filter: string): boolean {
+    this.data.filterPredicate = (filter: string) => this.data.name.indexOf(filter) != -1;
+    if (this.data.name.indexOf(filter) != -1) {
+      this.data.filter = filter;
+    }
+    return this.data.name.indexOf(filter) != -1;
+  }
+
   newClient() {
     this.router.navigate(['/cliente/add']);
   }
@@ -70,13 +80,26 @@ export class ListClientComponent implements OnInit {
     this.clientService.delete(id).subscribe(
       res => {
         const _data = this.data.data;
-        _data.pop(id);
+        for (let item of _data) {
+          if (item.id == id) {
+            _data.splice(_data.indexOf(item), 1);
+          }
+        }
         this.data.data = _data;
-        /* >this.data.data.pop(id) Doesn't works dynamically, but if you replace the complete array then it works fine.*/
+        /* >this.data.data.splice(id, 1) Doesn't works dynamically, but if you replace the complete array then it works fine.*/
+        this.openSnackBar("Cliente Removido");
       },
       err => alert(err.message)
     );
   }
+
+  openSnackBar(msg: string) {
+    let config = new MatSnackBarConfig();
+    config.panelClass = ['snack-custom-class'];
+    config.duration = 1000;
+    this.snackBar.open(msg, "", config);    
+  }
+
   editClient(id: string): void {
     let editUrl = `cliente/add;id=${id}`;
     window.location.href = editUrl;
