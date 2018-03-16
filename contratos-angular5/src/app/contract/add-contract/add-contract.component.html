@@ -1,9 +1,9 @@
 <mat-card>
-  <mat-card-title>Cadastro de Clientes</mat-card-title>
+  <mat-card-title>Cadastro de Contratos</mat-card-title>
   <mat-divider></mat-divider>
   <mat-card-content class="push-bottom-none">
 
-    <form [formGroup]="clientForm">
+    <form [formGroup]="contractForm">
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Nome*" formControlName="name">
@@ -26,9 +26,19 @@
           </mat-form-field>
         </div>
       </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Valor*" formControlName="value">
+        </mat-form-field>
+      </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Nº de Parcelas*" formControlName="number_installments">
+        </mat-form-field>
+      </div>
       <mat-card-actions>
         <div layout="row" class="form-buttons">
-          <button mat-button class="clear-button" [disabled]="clientForm.pristine" (click)="clearForm()">Limpar</button>
+          <button mat-button class="clear-button" [disabled]="contractForm.pristine" (click)="clearForm()">Limpar</button>
           <button mat-button type="submit" color="primary" (click)="onSubmit()">Salvar</button>
         </div>
       </mat-card-actions>

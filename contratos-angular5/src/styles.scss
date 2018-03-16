@@ -7,12 +7,12 @@
 
 @media only screen and (min-width : 360px) {
 	.mat-table {
-		margin-bottom: 3rem;
+		margin: 0rem 0rem 6rem 0rem;
 	}
 }
 @media only screen and (min-width : 768px) {
 	.mat-table {
-		margin: 0rem 3rem;
+		margin: 0rem 3rem 6rem 3rem;
 	}
 }
 
@@ -46,4 +46,21 @@
 
 .bg-transparent {
 	background: transparent !important;
+}
+
+// Forms
+.mat-card {
+	text-align: center;
+}
+.mat-card-subtitle {
+	padding-top: 2rem;
+	font-weight: bold;
+}
+
+.form-buttons {
+	padding-top: 0rem;
+}
+
+.clear-button {
+	margin-left: 7rem !important;
 }

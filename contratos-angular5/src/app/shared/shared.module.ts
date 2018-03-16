@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
+import { ContractService } from './services/contract.service';
 
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
@@ -22,7 +23,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatAutocompleteModule, MatTableModule, MatSortModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
-  providers: [ ClientService ],
+  providers: [ ClientService, ContractService ],
   declarations: []
 })
 export class SharedModule { }

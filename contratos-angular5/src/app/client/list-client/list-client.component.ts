@@ -4,6 +4,7 @@ import { ClientService } from '../../shared/services/client.service';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-list-client',

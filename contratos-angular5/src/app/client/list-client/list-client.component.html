@@ -6,7 +6,7 @@
   </mat-form-field>
 </div>
 <div layout="row" class="add-button">
-  <button mat-button class="right-align" color="primary" (click)="newClient()"><mat-icon>add</mat-icon>Novo Cliente</button>
+  <button mat-button class="addbtn" color="primary" (click)="newClient()"><mat-icon>add</mat-icon>Novo Cliente</button>
 </div>
 
 <mat-table #table [dataSource]="data" matSort>
@@ -38,13 +38,13 @@
   <!-- Creation Date Column -->
   <ng-container matColumnDef="creation_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Criado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.creation_date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.creation_date | date:'dd/MM/yy hh:mm:ss a'}} </mat-cell>
   </ng-container>
 
   <!-- Modified Date Column -->
   <ng-container matColumnDef="modified_date">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.modified_date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.modified_date | date:'dd/MM/yy hh:mm:ss a'}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

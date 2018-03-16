@@ -1,7 +1,25 @@
-.add-button {
-    padding: 0rem 3rem;
-}
-
 .filter-input {
     padding: 0rem 3rem;
+}
+.addbtn {
+    border: solid 1px;
+}
+
+@media only screen and (min-width : 360px) {
+    .add-button {
+        padding: 0rem 1rem;
+    }
+    .filter-input {
+        padding: 0rem 1rem;
+    }	
+}
+
+@media only screen and (min-width : 768px) {
+    .add-button {
+        padding: 0rem 3rem;
+    }
+    .filter-input {
+        padding: 0rem 3rem;
+    }
+	
 }

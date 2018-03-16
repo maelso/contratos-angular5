@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Client } from '../models/client';
 
@@ -16,7 +15,7 @@ export class ClientService {
     }
 
     save(client: Client): Observable<Client> {
-        return this.http.post<Client>(this.getAPI(), client.getApiPostData());
+        return this.http.post<Client>(this.getAPI(), client);
     }
 
     getClients(): Observable<Client[]> {

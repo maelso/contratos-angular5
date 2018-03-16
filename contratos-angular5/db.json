@@ -54,6 +54,56 @@
       "creation_date": "2018-03-15T23:48:42.038Z",
       "modified_date": "2018-03-15T23:48:42.038Z",
       "id": 4
+    },
+    {
+      "name": "Marcos",
+      "address": {
+        "country": "Brasil",
+        "state": "RJ",
+        "city": "Rio de Janeiro"
+      },
+      "creation_date": "2018-03-16T03:01:37.035Z",
+      "modified_date": "2018-03-16T03:01:37.035Z",
+      "id": 5
+    },
+    {
+      "name": "sadf",
+      "address": {
+        "country": "sadf",
+        "state": "sadf",
+        "city": "sadf"
+      },
+      "creation_date": "2018-03-16T04:27:30.227Z",
+      "modified_date": "2018-03-16T04:27:30.227Z",
+      "id": 6
+    }
+  ],
+  "contract": [
+    {
+      "id": 0,
+      "name": "João da Silva",
+      "address": {
+        "country": "Brasil",
+        "state": "Paraíba",
+        "city": "João Pessoa"
+      },
+      "value": "120",
+      "number_installments": "120",
+      "creation_date": "",
+      "modified_date": ""
+    },
+    {
+      "name": "Contrato",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "João Pessoa"
+      },
+      "value": "12000",
+      "number_installments": "4",
+      "creation_date": "2018-03-16T04:46:21.152Z",
+      "modified_date": "2018-03-16T04:46:21.152Z",
+      "id": 1
     }
   ]
 }

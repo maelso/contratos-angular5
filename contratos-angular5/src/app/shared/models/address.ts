@@ -8,13 +8,4 @@ export class Address {
         this.state = state;
         this.city = city;
     }
-
-	public getApiPostData(): any {
-		let data = {
-            "country": this.country,
-            "state": this.state,
-			"city": this.city
-		}
-		return data;
-	}
 }
