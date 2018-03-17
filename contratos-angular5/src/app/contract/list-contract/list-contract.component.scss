@@ -1,0 +1,39 @@
+.contract {
+    margin-top: 3rem;
+}
+
+.filter-input {
+    padding: 0rem 3rem;
+}
+.addbtn {
+    border: solid 1px;
+}
+.mat-icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+::ng-deep snack-bar-container.snack-custom-class {
+    background-color:forestgreen !important;
+    opacity: 0.8;
+    margin-bottom: 3rem !important;
+}
+
+@media only screen and (min-width : 360px) {
+    .add-button {
+        padding: 0rem 1rem;
+    }
+    .filter-input {
+        padding: 0rem 1rem;
+    }	
+}
+
+@media only screen and (min-width : 768px) {
+    .add-button {
+        padding: 0rem 3rem;
+    }
+    .filter-input {
+        padding: 0rem 3rem;
+    }
+	
+}

@@ -15,7 +15,26 @@ export class ContractService {
   constructor(private http: HttpClient) { }
 
   save(contract: Contract): Observable<Contract> {
+    contract.setCreationDate();
+    contract.setModifiedDate();
     return this.http.post<Contract>(this.getAPI(), contract);
+  }
+
+  getContracts(): Observable<Contract[]> {
+    return this.http.get<Contract[]>(this.getAPI());
+  }
+
+  get(id: string): Observable<Contract> {
+    return this.http.get<Contract>(`${this.getAPI()}/${id}`);
+  }
+
+  delete(id: string): Observable<Contract> {
+    return this.http.delete<Contract>(`${this.getAPI()}/${id}`);
+  }
+
+  put(id: string, contract: Contract): Observable<Contract> {
+    contract.setModifiedDate();
+    return this.http.put<Contract>(`${this.getAPI()}/${id}`, contract);
   }
 
 }

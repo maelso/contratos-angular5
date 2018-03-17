@@ -13,7 +13,13 @@ export class Contract {
         this.address = address;
         this.value = value;
         this.number_installments = number_installments;
+    }
+
+    setCreationDate(){
         this.creation_date = new Date();
+    }
+
+    setModifiedDate(){
         this.modified_date = new Date();
     }
 }

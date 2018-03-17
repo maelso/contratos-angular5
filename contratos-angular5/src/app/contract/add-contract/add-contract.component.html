@@ -28,7 +28,7 @@
       </div>
       <div layout="row">
         <mat-form-field flex>
-          <input matInput placeholder="Valor*" formControlName="value">
+          <input matInput placeholder="Valor*" formControlName="value" (blur)="formatCurrency()" >
         </mat-form-field>
       </div>
       <div layout="row">
@@ -39,7 +39,7 @@
       <mat-card-actions>
         <div layout="row" class="form-buttons">
           <button mat-button class="clear-button" [disabled]="contractForm.pristine" (click)="clearForm()">Limpar</button>
-          <button mat-button type="submit" color="primary" (click)="onSubmit()">Salvar</button>
+          <button mat-button type="submit" color="primary" [disabled]="contractForm.pristine" (click)="onSubmit()">Salvar</button>
         </div>
       </mat-card-actions>
     </form>

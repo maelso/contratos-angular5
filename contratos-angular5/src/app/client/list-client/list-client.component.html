@@ -1,62 +1,63 @@
-<p>.</p>
+<div class="client">
+  <div class="filter-input">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <div layout="row" class="add-button">
+    <button mat-button class="addbtn" color="primary" (click)="newClient()">
+      <mat-icon>add</mat-icon>Novo Cliente</button>
+  </div>
 
-<div class="filter-input">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
-<div layout="row" class="add-button">
-  <button mat-button class="addbtn" color="primary" (click)="newClient()"><mat-icon>add</mat-icon>Novo Cliente</button>
-</div>
+  <mat-table #table [dataSource]="data" matSort>
 
-<mat-table #table [dataSource]="data" matSort>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-  </ng-container>
+    <!-- Country Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> País </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
 
-  <!-- Country Column -->
-  <ng-container matColumnDef="country">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> País </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
-  </ng-container>
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
+    </ng-container>
 
-  <!-- State Column -->
-  <ng-container matColumnDef="state">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
-  </ng-container>
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
 
-  <!-- City Column -->
-  <ng-container matColumnDef="city">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
-  </ng-container>
+    <!-- Creation Date Column -->
+    <ng-container matColumnDef="creation_date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Criado em: </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.creation_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
+    </ng-container>
 
-  <!-- Creation Date Column -->
-  <ng-container matColumnDef="creation_date">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Criado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.creation_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
-  </ng-container>
+    <!-- Modified Date Column -->
+    <ng-container matColumnDef="modified_date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em: </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.modified_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
+    </ng-container>
 
-  <!-- Modified Date Column -->
-  <ng-container matColumnDef="modified_date">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em: </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.modified_date | date:'dd/MM/yy HH:mm:ss'}} </mat-cell>
-  </ng-container>
-
-  <!-- Actions Column -->
-  <ng-container matColumnDef="action">
+    <!-- Actions Column -->
+    <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef> Ações: </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <mat-icon class="color-blue" matTooltip="Editar" (click)="editClient(element.id)">edit</mat-icon>
-        <mat-icon class="color-red" matTooltip="Remover" (click)="remove(element.id)" >delete</mat-icon>
+        <mat-icon class="color-red" matTooltip="Remover" (click)="remove(element.id)">delete</mat-icon>
       </mat-cell>
     </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-</mat-table>
+  </mat-table>
+</div>
