@@ -42,7 +42,6 @@ export class ListClientComponent implements OnInit {
       _dataGrid.push(this.dataSource);
     }
     this.data = new MatTableDataSource(_dataGrid);
-    console.log("Data ", _dataGrid);
     this.data.sort = this.sort;
   }
 
@@ -61,7 +60,6 @@ export class ListClientComponent implements OnInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.data.filter = filterValue;
-    console.log("data.filter ", this.data);
   }
 
   customFilter(filter: string): boolean {

@@ -8,11 +8,6 @@ import { HeaderComponent } from '../header/header.component';
 export class MenuComponent implements OnInit {
 
 	routes: Object[] = [
-		// {
-		// 	title: 'Dashboard',
-		// 	route: '/dashboard',
-		// 	icon: 'dashboard',
-		// },
 		{
 			title: 'Clientes',
 			route: '/cliente',
@@ -22,7 +17,12 @@ export class MenuComponent implements OnInit {
 			title: 'Contratos',
 			route: '/contrato',
 			icon: 'description',
-		}
+		},
+		{
+			title: 'Relatório Sintético',
+			route: '/report',
+			icon: 'dashboard',
+		},
 	];
 
 	constructor(private header: HeaderComponent) { }

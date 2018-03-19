@@ -9,7 +9,7 @@ import { PaymentService } from './services/payment.service';
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSortModule,
-  MatTooltipModule, MatSnackBarModule, 
+  MatTooltipModule, MatSnackBarModule, MatExpansionModule,
   MatDialogModule, MatGridListModule,
   MatAutocompleteModule, MatSelectModule, MatTableModule }  from '@angular/material';
 
@@ -25,7 +25,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
     MatAutocompleteModule, MatTableModule, MatSortModule,
     MatTooltipModule, MatSnackBarModule, MatDialogModule,
-    MatGridListModule,
+    MatGridListModule, MatExpansionModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
   providers: [ ClientService, ContractService, PaymentService ],

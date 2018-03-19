@@ -1,3 +1,40 @@
-<p>
-  report works!
-</p>
+<div class="report">
+  <h3 *ngIf="clientsWithContracts">Atualmente existem {{clientsWithContracts.length}} clientes cadastrados no sistema</h3>
+
+  <!-- <ul *ngFor="let client of clientsWithContracts" >
+    <li>{{client.name}}</li>
+    <ul *ngFor="let contract of client.contracts">
+      <li> {{contract.name}} </li>
+      <li>{{contract.payments}}</li>
+    </ul>
+  </ul> -->
+  <mat-accordion multi="false">
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let client of clientsWithContracts">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>{{client.name}}</b>
+        </mat-panel-title>
+        <mat-panel-description *ngIf="client.contracts">
+          {{client.contracts.length}}&nbsp;contrato(s)
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list *ngFor="let contract of client.contracts">
+        <mat-list-item>
+          <b>Contrato:&nbsp;</b>
+          {{contract.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+          <b>Valor:&nbsp;</b>
+          R$ {{_parseCurrency(contract.value)}}&nbsp;&nbsp;&nbsp;&nbsp;
+          <b>Parcelamento:&nbsp;</b>{{contract.number_installments}}x
+        </mat-list-item>
+        <mat-list *ngFor="let payment of contract.payments">
+          <mat-list-item class="payment-item">Parcela:&nbsp; R$ {{_parseCurrency(payment.value)}}&nbsp;&nbsp;&nbsp;&nbsp; Vencimento:&nbsp; {{payment.expiration_date
+            | date:'dd/MM/yy'}}
+          </mat-list-item>
+        </mat-list>
+        <hr>
+      </mat-list>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

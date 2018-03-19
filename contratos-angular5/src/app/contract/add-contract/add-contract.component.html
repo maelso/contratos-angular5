@@ -7,14 +7,14 @@
       <mat-card-subtitle *ngIf="!clientFromSelectedContract">Selecione um Cliente</mat-card-subtitle>
       <mat-card-subtitle *ngIf="clientFromSelectedContract">Cliente Selecionado</mat-card-subtitle>
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field flex [matTooltip]="editMode ? 'Após o fechamento do contrato, esta informação não pode ser mudada': null">
           <input matInput placeholder="Nome do Cliente*" formControlName="client_name"
-          (keyup)="clearClient()" >
+          (keyup)="clearClient()">
         </mat-form-field>
       </div>
 
       <div layout="row">
-        <button mat-button color="primary" class="search-button" [disabled]="contractForm.get('client_name').invalid" (click)="searchClientByName()">Procurar cliente
+        <button mat-button color="primary" class="search-button" [disabled]="contractForm.get('client_name').invalid || editMode" (click)="searchClientByName()">Procurar cliente
         </button>
       </div>
       <div *ngIf="clientFromSelectedContract">
@@ -42,12 +42,12 @@
           </div>
         </div>
         <div layout="row">
-          <mat-form-field flex>
+          <mat-form-field flex [matTooltip]="editMode ? 'Após o fechamento do contrato, esta informação não pode ser mudada': null">
             <input matInput placeholder="Valor*" formControlName="value" (blur)="formatCurrency()">
           </mat-form-field>
         </div>
         <div layout="row">
-          <mat-form-field flex>
+          <mat-form-field flex [matTooltip]="editMode ? 'Após o fechamento do contrato, esta informação não pode ser mudada': null">
             <input matInput placeholder="Nº de Parcelas*" formControlName="number_installments">
           </mat-form-field>
         </div>

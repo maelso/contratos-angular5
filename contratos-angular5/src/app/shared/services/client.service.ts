@@ -20,8 +20,8 @@ export class ClientService {
         return this.http.get<Client[]>(this.apiUrl);
     }
 
-    getClientsWithContracts(): Observable<Client[]> {
-        return this.http.get<Client[]>(`${this.apiUrl}?_embed=contracts`);
+    getClientsWithContracts(): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}?_embed=contracts&_sort=name`);
     }
 
     get(id: string): Observable<Client> {

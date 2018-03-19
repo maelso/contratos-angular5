@@ -68,6 +68,11 @@ export class AddContractComponent implements OnInit {
         this.editMode = true;
         this.contractId = params.id;
         this.getContractData(params.id);
+        if(this.contractForm){
+          this.contractForm.get('client_name').disable();
+          this.contractForm.get('value').disable();
+          this.contractForm.get('number_installments').disable();
+        }
       }
       //No ID Parameter, Create Mode
       else {
@@ -173,7 +178,7 @@ export class AddContractComponent implements OnInit {
   createForm() {
     this.contractForm = this.fb.group({
       client_name: [null, [Validators.required, Validators.pattern("[a-zA-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"), Validators.minLength(3), Validators.maxLength(40)]],
-      name: [null, [Validators.required, Validators.pattern("[a-zA-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"), Validators.minLength(3), Validators.maxLength(40)]],
+      name: [null, [Validators.required, Validators.pattern("[a-zA-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"), Validators.minLength(3), Validators.maxLength(80)]],
       address: this.fb.group({
         country: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
         state: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
@@ -211,8 +216,6 @@ export class AddContractComponent implements OnInit {
     this.contractForm.patchValue({
       client_name: this.clientFromSelectedContract.name,
     });
-    this.contractForm.markAsPristine();
-    this.contractForm.markAsUntouched();
   }
 
   getContractData(id: string) {

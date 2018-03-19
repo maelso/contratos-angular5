@@ -38,7 +38,7 @@
     <!-- Value Column -->
     <ng-container matColumnDef="value">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Valor: </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{_parseCurrency(element.value)}} </mat-cell>
+      <mat-cell *matCellDef="let element">R$ {{_parseCurrency(element.value)}} </mat-cell>
     </ng-container>
 
     <!-- Installments Column -->

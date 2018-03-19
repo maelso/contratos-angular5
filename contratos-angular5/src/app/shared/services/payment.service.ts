@@ -17,4 +17,8 @@ export class PaymentService {
     return this.http.post<Payment>(this.apiUrl, payment);
   }
 
+  getPaymentsByContractId(contractId:number): Observable<Payment[]> {
+    return this.http.get<Payment[]>(`${this.apiUrl}?contractId=${contractId}`)
+  }
+
 }

@@ -24,8 +24,12 @@ export class ContractService {
     return this.http.get<Contract[]>(this.getAPI());
   }
 
-  getContractsTogetherClient(): Observable<Contract[]> {
+  getContractsWithClients(): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.getAPI()}?_expand=client`);
+  }
+
+  getContractsWithPayments():Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.getAPI()}?_embed=payments`);
   }
 
   get(id: string): Observable<Contract> {
