@@ -9,6 +9,11 @@ export class MenuComponent implements OnInit {
 
 	routes: Object[] = [
 		{
+			title: 'Dashboard',
+			route: '/',
+			icon: 'dashboard',
+		},
+		{
 			title: 'Clientes',
 			route: '/cliente',
 			icon: 'account_circle',
@@ -17,11 +22,6 @@ export class MenuComponent implements OnInit {
 			title: 'Contratos',
 			route: '/contrato',
 			icon: 'description',
-		},
-		{
-			title: 'Relatórios',
-			route: '/report',
-			icon: 'dashboard',
 		},
 	];
 

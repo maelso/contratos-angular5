@@ -9,18 +9,29 @@
       <mat-panel-description>
       </mat-panel-description>
     </mat-expansion-panel-header>
-      <mat-list *ngFor="let client of clientsWithContracts">
-        <mat-list-item>
-            <b>Cliente:&nbsp;</b>{{client.name}}&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>Valor Total em Contratos:&nbsp; </b>R$ {{_parseCurrency(client.total_payments)}}
-        </mat-list-item>
-      </mat-list>
+    <mat-list *ngFor="let client of clientsWithContracts">
+      <mat-list-item>
+        <label>
+          <b>Cliente:&nbsp;</b>{{client.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+          <b>Valor Total em Contratos:&nbsp; </b>R$ {{_parseCurrency(client.total_payments)}}
+        </label>
+      </mat-list-item>
+    </mat-list>
+    <div class="charts">
+      <ul>
+        <li class="chart">
+          <div>
+            <h3>Contratos por Cidade</h3>
+            <canvas id="contractsChart">{{contractsChart}}</canvas>
+          </div>
+        </li>
+        <li class="chart">
+          <h3>Clientes por Cidade</h3>
+          <canvas id="clientsChart">{{clientsChart}}</canvas>
+        </li>
+      </ul>
+    </div>
   </mat-expansion-panel>
-
-  <h4>Contratos por Cidade</h4>
-  <div *ngFor="let item of cities" class="payment-item">
-    <p>{{item}}: {{groupByCity[item].length}}</p>
-  </div>
 
   <h2 style="padding-top: 3rem;">Analítico</h2>
 
@@ -37,11 +48,13 @@
       </mat-expansion-panel-header>
       <mat-list *ngFor="let contract of client.contracts">
         <mat-list-item>
-          <b>Contrato:&nbsp;</b>
-          {{contract.name}}&nbsp;&nbsp;&nbsp;&nbsp;
-          <b>Valor:&nbsp;</b>
-          R$ {{_parseCurrency(contract.value)}}&nbsp;&nbsp;&nbsp;&nbsp;
-          <b>Parcelamento:&nbsp;</b>{{contract.number_installments}}x
+          <div>
+            <b>Contrato:&nbsp;</b>
+            {{contract.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Valor:&nbsp;</b>
+            R$ {{_parseCurrency(contract.value)}}&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Parcelamento:&nbsp;</b>{{contract.number_installments}}x
+          </div>
         </mat-list-item>
         <mat-list *ngFor="let payment of contract.payments">
           <mat-list-item class="payment-item">Parcela:&nbsp; R$ {{_parseCurrency(payment.value)}}&nbsp;&nbsp;&nbsp;&nbsp; Vencimento:&nbsp; {{payment.expiration_date

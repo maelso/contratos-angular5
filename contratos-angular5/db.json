@@ -76,6 +76,17 @@
       "creation_date": "2018-03-19T02:31:46.503Z",
       "modified_date": "2018-03-19T02:31:46.503Z",
       "id": 6
+    },
+    {
+      "name": "Alan Turing ",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "Campina Grande"
+      },
+      "creation_date": "2018-03-19T17:14:26.362Z",
+      "modified_date": "2018-03-19T17:14:42.579Z",
+      "id": 7
     }
   ],
   "contracts": [
@@ -134,6 +145,20 @@
       "creation_date": "2018-03-19T06:46:17.239Z",
       "modified_date": "2018-03-19T06:46:17.239Z",
       "id": 5
+    },
+    {
+      "clientId": 1,
+      "name": "Terraplanagem",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "Coremas"
+      },
+      "value": 5000000,
+      "number_installments": "5",
+      "creation_date": "2018-03-19T16:17:11.893Z",
+      "modified_date": "2018-03-19T16:17:11.893Z",
+      "id": 6
     }
   ],
   "payments": [
@@ -288,6 +313,46 @@
       "creation_date": "2018-03-19T06:46:17.317Z",
       "modified_date": "2018-03-19T06:46:17.317Z",
       "id": 21
+    },
+    {
+      "contractId": 6,
+      "value": 1000000,
+      "expiration_date": "2018-04-18T16:17:11.893Z",
+      "creation_date": "2018-03-19T16:17:12.040Z",
+      "modified_date": "2018-03-19T16:17:12.040Z",
+      "id": 22
+    },
+    {
+      "contractId": 6,
+      "value": 1000000,
+      "expiration_date": "2018-05-18T16:17:11.893Z",
+      "creation_date": "2018-03-19T16:17:12.043Z",
+      "modified_date": "2018-03-19T16:17:12.043Z",
+      "id": 23
+    },
+    {
+      "contractId": 6,
+      "value": 1000000,
+      "expiration_date": "2018-06-17T16:17:11.893Z",
+      "creation_date": "2018-03-19T16:17:12.048Z",
+      "modified_date": "2018-03-19T16:17:12.048Z",
+      "id": 24
+    },
+    {
+      "contractId": 6,
+      "value": 1000000,
+      "expiration_date": "2018-07-17T16:17:11.893Z",
+      "creation_date": "2018-03-19T16:17:12.052Z",
+      "modified_date": "2018-03-19T16:17:12.052Z",
+      "id": 25
+    },
+    {
+      "contractId": 6,
+      "value": 1000000,
+      "expiration_date": "2018-08-16T16:17:11.893Z",
+      "creation_date": "2018-03-19T16:17:12.056Z",
+      "modified_date": "2018-03-19T16:17:12.056Z",
+      "id": 26
     }
   ]
 }
