@@ -1,6 +1,7 @@
 import { Address } from './address';
 
 export class Contract {
+    clientId: string;
     name: string;
     address: Address;
     value: number;
@@ -8,7 +9,8 @@ export class Contract {
     creation_date: Date;
     modified_date: Date;
 
-    constructor(name: string, address: Address, value: number, number_installments:number){
+    constructor(clientId: string, name: string, address: Address, value: number, number_installments:number){
+        this.clientId = clientId;
         this.name = name;
         this.address = address;
         this.value = value;

@@ -4,44 +4,60 @@
   <mat-card-content class="push-bottom-none">
 
     <form [formGroup]="contractForm">
+      <mat-card-subtitle *ngIf="!clientFromSelectedContract">Selecione um Cliente</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="clientFromSelectedContract">Cliente Selecionado</mat-card-subtitle>
       <div layout="row">
         <mat-form-field flex>
-          <input matInput placeholder="Nome*" formControlName="name">
+          <input matInput placeholder="Nome do Cliente*" formControlName="client_name"
+          (keyup)="clearClient()" >
         </mat-form-field>
       </div>
-      <div formGroupName="address">
+
+      <div layout="row">
+        <button mat-button color="primary" class="search-button" [disabled]="contractForm.get('client_name').invalid" (click)="searchClientByName()">Procurar cliente
+        </button>
+      </div>
+      <div *ngIf="clientFromSelectedContract">
+        <mat-card-subtitle>Informações do Contrato</mat-card-subtitle>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="País*" formControlName="country">
+            <input matInput placeholder="Nome*" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div formGroupName="address">
+          <div layout="row">
+            <mat-form-field flex>
+              <input matInput placeholder="País*" formControlName="country">
+            </mat-form-field>
+          </div>
+          <div layout="row">
+            <mat-form-field flex>
+              <input matInput placeholder="Estado*" formControlName="state">
+            </mat-form-field>
+          </div>
+          <div layout="row">
+            <mat-form-field flex>
+              <input matInput placeholder="Cidade*" formControlName="city">
+            </mat-form-field>
+          </div>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Valor*" formControlName="value" (blur)="formatCurrency()">
           </mat-form-field>
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Estado*" formControlName="state">
+            <input matInput placeholder="Nº de Parcelas*" formControlName="number_installments">
           </mat-form-field>
         </div>
-        <div layout="row">
-          <mat-form-field flex>
-            <input matInput placeholder="Cidade*" formControlName="city">
-          </mat-form-field>
-        </div>
+        <mat-card-actions>
+          <div layout="row" class="form-buttons">
+            <button mat-button class="clear-button" [disabled]="contractForm.pristine" (click)="clearForm()">Limpar</button>
+            <button mat-button type="submit" color="primary" [disabled]="contractForm.pristine" (click)="onSubmit()">Salvar</button>
+          </div>
+        </mat-card-actions>
       </div>
-      <div layout="row">
-        <mat-form-field flex>
-          <input matInput placeholder="Valor*" formControlName="value" (blur)="formatCurrency()" >
-        </mat-form-field>
-      </div>
-      <div layout="row">
-        <mat-form-field flex>
-          <input matInput placeholder="Nº de Parcelas*" formControlName="number_installments">
-        </mat-form-field>
-      </div>
-      <mat-card-actions>
-        <div layout="row" class="form-buttons">
-          <button mat-button class="clear-button" [disabled]="contractForm.pristine" (click)="clearForm()">Limpar</button>
-          <button mat-button type="submit" color="primary" [disabled]="contractForm.pristine" (click)="onSubmit()">Salvar</button>
-        </div>
-      </mat-card-actions>
     </form>
   </mat-card-content>
 

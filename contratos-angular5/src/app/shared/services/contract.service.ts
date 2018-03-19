@@ -6,7 +6,7 @@ import { Contract } from '../models/contract';
 @Injectable()
 export class ContractService {
 
-  protected apiUrl: string = 'http://0.0.0.0:3000/contract';
+  protected apiUrl: string = 'http://0.0.0.0:3000/contracts';
 
   getAPI() {
     return this.apiUrl;
@@ -22,6 +22,10 @@ export class ContractService {
 
   getContracts(): Observable<Contract[]> {
     return this.http.get<Contract[]>(this.getAPI());
+  }
+
+  getContractsTogetherClient(): Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.getAPI()}?_expand=client`);
   }
 
   get(id: string): Observable<Contract> {

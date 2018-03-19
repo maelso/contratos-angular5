@@ -1,5 +1,5 @@
 {
-  "client": [
+  "clients": [
     {
       "name": "Joao da Silva ",
       "address": {
@@ -21,47 +21,137 @@
       "creation_date": "2018-03-16T07:46:25.749Z",
       "modified_date": "2018-03-16T07:46:25.749Z",
       "id": 1
-    }
-  ],
-  "contract": [
-    {
-      "id": 0,
-      "name": "João da Silva",
-      "address": {
-        "country": "Brasil",
-        "state": "Paraíba",
-        "city": "João Pessoa"
-      },
-      "value": "120",
-      "number_installments": "120",
-      "creation_date": "",
-      "modified_date": ""
     },
     {
-      "name": "Contrato",
+      "name": "José Limeira",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "Ibiara"
+      },
+      "creation_date": "2018-03-17T08:12:26.995Z",
+      "modified_date": "2018-03-17T08:12:26.995Z",
+      "id": 2
+    },
+    {
+      "name": "Angular Cinco",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "Ibiara"
+      },
+      "creation_date": "2018-03-17T08:12:56.317Z",
+      "modified_date": "2018-03-17T08:12:56.317Z",
+      "id": 3
+    },
+    {
+      "name": "Stephen Hawking",
+      "address": {
+        "country": "brasil",
+        "state": "PB",
+        "city": "Patos"
+      },
+      "creation_date": "2018-03-18T07:36:26.927Z",
+      "modified_date": "2018-03-18T07:36:26.928Z",
+      "id": 4
+    }
+  ],
+  "contracts": [
+    {
+      "clientId": 1,
+      "name": "Serviços de Limpeza",
+      "address": {
+        "country": "Brasil",
+        "state": "RN",
+        "city": "Natal"
+      },
+      "value": 200000,
+      "number_installments": "4",
+      "creation_date": "2018-03-18T21:11:25.715Z",
+      "modified_date": "2018-03-18T21:11:25.715Z",
+      "id": 2
+    },
+    {
+      "clientId": 0,
+      "name": "Implementação de portal eletrônico",
+      "address": {
+        "country": "Brasil",
+        "state": "RJ",
+        "city": "Rio de Janeiro"
+      },
+      "value": 2000000,
+      "number_installments": "10",
+      "creation_date": "2018-03-18T21:16:37.984Z",
+      "modified_date": "2018-03-18T21:16:37.984Z",
+      "id": 3
+    },
+    {
+      "clientId": 1,
+      "name": "Manutenção de Sistemas de Informação",
       "address": {
         "country": "Brasil",
         "state": "PB",
         "city": "João Pessoa"
       },
-      "value": "12000",
+      "value": 199999,
       "number_installments": "4",
-      "creation_date": "2018-03-16T04:46:21.152Z",
-      "modified_date": "2018-03-16T20:41:00.454Z",
+      "creation_date": "2018-03-18T21:53:30.283Z",
+      "modified_date": "2018-03-18T21:53:49.188Z",
+      "id": 4
+    },
+    {
+      "clientId": 1,
+      "name": "Serviços de Hospedagem",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "João Pessoa"
+      },
+      "value": 9999,
+      "number_installments": "1",
+      "creation_date": "2018-03-18T23:31:48.109Z",
+      "modified_date": "2018-03-18T23:31:48.109Z",
+      "id": 5
+    },
+    {
+      "clientId": 0,
+      "name": "Contrato Um",
+      "address": {
+        "country": "Brasil",
+        "state": "PB",
+        "city": "JOAO PESSOA"
+      },
+      "value": 9999,
+      "number_installments": "2",
+      "creation_date": "2018-03-19T00:26:41.809Z",
+      "modified_date": "2018-03-19T00:26:41.809Z",
+      "id": 6
+    }
+  ],
+  "payments": [
+    {
+      "value": 9999,
+      "expiration_date": "2018-03-18T23:31:48.109Z",
+      "creation_date": "2018-03-18T23:31:48.109Z",
+      "modified_date": "2018-03-18T23:31:48.109Z",
+      "contractId": 5,
+      "id": 0
+    },
+    {
+      "contractId": 6,
+      "value": 5000,
+      "expiration_date": "2018-04-18T00:26:41.809Z",
+      "creation_date": "2018-03-19T00:26:41.900Z",
+      "modified_date": "2018-03-19T00:26:41.900Z",
       "id": 1
     },
     {
-      "name": "afadf",
-      "address": {
-        "country": "asfas",
-        "state": "asfasf",
-        "city": "asfasf"
-      },
-      "value": 199999,
-      "number_installments": "2",
-      "creation_date": "2018-03-17T06:27:04.467Z",
-      "modified_date": "2018-03-17T06:27:04.467Z",
-      "id": 3
+      "contractId": 6,
+      "value": 5000,
+      "expiration_date": "2018-05-18T00:26:41.809Z",
+      "creation_date": "2018-03-19T00:26:41.903Z",
+      "modified_date": "2018-03-19T00:26:41.903Z",
+      "id": 2
     }
   ]
 }

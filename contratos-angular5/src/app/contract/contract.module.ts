@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddContractComponent } from './add-contract/add-contract.component';
+import { AddContractComponent, SelectClientModalComponent } from './add-contract/add-contract.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContractRoutingModule } from './contract.routing';
 import { ListContractComponent } from './list-contract/list-contract.component';
@@ -9,8 +9,9 @@ import { ListContractComponent } from './list-contract/list-contract.component';
   imports: [
     CommonModule,
     SharedModule,
-    ContractRoutingModule
+    ContractRoutingModule,
   ],
-  declarations: [AddContractComponent, ListContractComponent]
+  declarations: [AddContractComponent, ListContractComponent, SelectClientModalComponent],
+  entryComponents: [SelectClientModalComponent]
 })
 export class ContractModule { }

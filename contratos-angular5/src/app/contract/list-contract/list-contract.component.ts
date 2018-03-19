@@ -5,6 +5,7 @@ import { MatTableDataSource, MatSort, MatDialog, MatDialogRef, MatSnackBar, MatS
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ClientService } from '../../shared/services/client.service';
 
 @Component({
   selector: 'app-list-contract',
@@ -13,13 +14,14 @@ import { DatePipe } from '@angular/common';
 })
 export class ListContractComponent implements OnInit {
 
-  contract: Contract[];
+  contracts: Contract[];
   dataSource = [];
   data;
-  displayedColumns = ['name', 'country', 'state', 'city', 'value', 'number_installments', 'creation_date', 'modified_date', 'action'];
+  displayedColumns = ['name', 'city', 'value', 'number_installments', 'creation_date', 'modified_date', 'action'];
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private contractService: ContractService,
+              private clientService: ClientService,
               private router: Router,
               private dialog: MatDialog,
               private snackBar: MatSnackBar) { }
@@ -27,7 +29,7 @@ export class ListContractComponent implements OnInit {
   ngOnInit() {
     this.contractService.getContracts().subscribe(
       data => {
-        this.contract = data;
+        this.contracts = data;
         this.setUpGrid();
       },
       err => alert(err.message)
@@ -36,9 +38,9 @@ export class ListContractComponent implements OnInit {
 
   setUpGrid() {
     let _dataGrid = [];
-    for (let Contract of this.contract) {
+    for (let contract of this.contracts) {
       this.dataSource = [];
-      this.toString(Contract)
+      this.toString(contract);
       _dataGrid.push(this.dataSource);
     }
     this.data = new MatTableDataSource(_dataGrid);
@@ -97,7 +99,7 @@ export class ListContractComponent implements OnInit {
     let config = new MatSnackBarConfig();
     config.panelClass = ['snack-custom-class'];
     config.duration = 1000;
-    this.snackBar.open(msg, "", config);    
+    this.snackBar.open(msg, "", config);
   }
 
   editContract(id: string): void {
@@ -105,7 +107,7 @@ export class ListContractComponent implements OnInit {
     window.location.href = editUrl;
   }
 
-  _parseCurrency(value: any){
+  _parseCurrency(value: any) {
     return (value.toString().replace(/\./g, '').replace(/\,/g, '') / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
 

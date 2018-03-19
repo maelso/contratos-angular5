@@ -2,9 +2,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ReportComponent } from './report/report.component';
 
 const APP_ROUTES: Routes = [
-	{ path: '', component: AppComponent },
+    { path: '', component: AppComponent },
+    { path: 'report', component: ReportComponent },
 ];
 
 @NgModule({

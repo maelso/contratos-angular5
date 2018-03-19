@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContractModule } from './contract/contract.module';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ContractModule } from './contract/contract.module';
     FooterComponent,
     HeaderComponent,
     MenuComponent,
+    ReportComponent,
   ],
   imports: [
     AppRouting,

@@ -4,11 +4,13 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from './services/client.service';
 import { ContractService } from './services/contract.service';
+import { PaymentService } from './services/payment.service';
 
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSortModule,
-  MatTooltipModule, MatSnackBarModule, MatDialogModule,
+  MatTooltipModule, MatSnackBarModule, 
+  MatDialogModule, MatGridListModule,
   MatAutocompleteModule, MatSelectModule, MatTableModule }  from '@angular/material';
 
 @NgModule({
@@ -23,9 +25,10 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
     MatAutocompleteModule, MatTableModule, MatSortModule,
     MatTooltipModule, MatSnackBarModule, MatDialogModule,
+    MatGridListModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
-  providers: [ ClientService, ContractService ],
+  providers: [ ClientService, ContractService, PaymentService ],
   declarations: []
 })
 export class SharedModule { }
