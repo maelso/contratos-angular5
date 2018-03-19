@@ -1,16 +1,32 @@
 <div class="report">
-  <h3 *ngIf="clientsWithContracts">Atualmente existem {{clientsWithContracts.length}} clientes cadastrados no sistema</h3>
 
-  <!-- <ul *ngFor="let client of clientsWithContracts" >
-    <li>{{client.name}}</li>
-    <ul *ngFor="let contract of client.contracts">
-      <li> {{contract.name}} </li>
-      <li>{{contract.payments}}</li>
-    </ul>
-  </ul> -->
+  <h2>Sintético</h2>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header *ngIf="clientsWithContracts">
+      <mat-panel-title>
+        <b>Número de clientes cadastrados: {{clientsWithContracts.length}}</b>
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <mat-list *ngFor="let client of clientsWithContracts">
+        <mat-list-item>
+            <b>Cliente:&nbsp;</b>{{client.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Valor Total em Contratos:&nbsp; </b>R$ {{_parseCurrency(client.total_payments)}}
+        </mat-list-item>
+      </mat-list>
+  </mat-expansion-panel>
+
+  <h4>Contratos por Cidade</h4>
+  <div *ngFor="let item of cities" class="payment-item">
+    <p>{{item}}: {{groupByCity[item].length}}</p>
+  </div>
+
+  <h2 style="padding-top: 3rem;">Analítico</h2>
+
   <mat-accordion multi="false">
 
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let client of clientsWithContracts">
+    <mat-expansion-panel *ngFor="let client of clientsWithContracts">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>{{client.name}}</b>

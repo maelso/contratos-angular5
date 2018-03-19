@@ -14,6 +14,7 @@ export class ReportComponent implements OnInit {
   clients: Client[];
   clientsWithContracts: any;
   groupByCity = {};
+  cities: string[];
 
   constructor(private clientService: ClientService,
               private contractService: ContractService,
@@ -24,16 +25,22 @@ export class ReportComponent implements OnInit {
     this.clientService.getClientsWithContracts().subscribe(
       data => {
         this.clientsWithContracts = data;
+        console.log("clientsWithContracts ", this.clientsWithContracts)
         this.reportByCity();
         for (let client of this.clientsWithContracts) {
+          client['total_payments'] = 0;
           for(let contract of client.contracts){
             this.paymentService.getPaymentsByContractId(contract.id).subscribe(
-              response => contract['payments'] = response,
+              response => {
+                contract['payments'] = response;
+                for(let payment of contract['payments']){
+                  client['total_payments'] += payment.value;
+                }
+              },
               err => alert(err.message)
             );
           }
         }
-        console.log("payments together: ", this.clientsWithContracts);
       },
       err => alert(err.message)
     );
@@ -42,9 +49,9 @@ export class ReportComponent implements OnInit {
   reportByCity() {
     this.clientsWithContracts.forEach(client => {
       this.groupByCity[client.address.city] = this.groupByCity[client.address.city] || [];
-      this.groupByCity[client.address.city].push({ date:client.name });
+      this.groupByCity[client.address.city].push({ client:client.name });
     });
-    console.log('reportByCity: ', this.groupByCity);
+    this.cities = Object.keys(this.groupByCity);
   }
 
   _parseCurrency(value: any) {

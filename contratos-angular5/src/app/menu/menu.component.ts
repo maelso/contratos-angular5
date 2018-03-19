@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
 			icon: 'description',
 		},
 		{
-			title: 'Relatório Sintético',
+			title: 'Relatórios',
 			route: '/report',
 			icon: 'dashboard',
 		},

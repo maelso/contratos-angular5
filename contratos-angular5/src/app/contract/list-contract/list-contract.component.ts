@@ -17,6 +17,7 @@ export class ListContractComponent implements OnInit {
   contracts: Contract[];
   dataSource = [];
   data;
+  searchText: string = "";
   displayedColumns = ['name', 'city', 'value', 'number_installments', 'creation_date', 'modified_date', 'action'];
   @ViewChild(MatSort) sort: MatSort;
 

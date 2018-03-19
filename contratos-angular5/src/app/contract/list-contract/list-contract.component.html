@@ -1,7 +1,7 @@
 <div class="contract">
   <div class="filter-input">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchText" placeholder="Filter">
     </mat-form-field>
   </div>
   <div layout="row" class="add-button">
