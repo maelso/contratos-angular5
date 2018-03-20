@@ -24,6 +24,10 @@ export class ContractService {
     return this.http.get<Contract[]>(this.getAPI());
   }
 
+  getContractsWithFilters(filter: string): Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.getAPI()}?${filter}`);
+  }
+
   getContractsWithClients(): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.getAPI()}?_expand=client`);
   }

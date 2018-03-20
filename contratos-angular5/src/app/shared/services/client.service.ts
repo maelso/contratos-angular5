@@ -20,6 +20,10 @@ export class ClientService {
         return this.http.get<Client[]>(this.apiUrl);
     }
 
+    getClientsWithFilters(filter: string): Observable<Client[]> {
+        return this.http.get<Client[]>(`${this.apiUrl}?${filter}`);
+    }
+
     getClientsWithContracts(): Observable<any> {
         return this.http.get<any>(`${this.apiUrl}?_embed=contracts&_sort=name`);
     }

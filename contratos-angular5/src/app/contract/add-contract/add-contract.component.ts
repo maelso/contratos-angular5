@@ -92,7 +92,6 @@ export class AddContractComponent implements OnInit {
         if (data) {
           this.selectedClientId = data.data.id;
           this.clientFromSelectedContract = data.data;
-          console.log("this.clientFromSelectedContract ", this.clientFromSelectedContract);
           this.setClientData();
         }
       },

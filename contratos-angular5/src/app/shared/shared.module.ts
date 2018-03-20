@@ -11,6 +11,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSortModule,
   MatTooltipModule, MatSnackBarModule, MatExpansionModule,
   MatDialogModule, MatGridListModule,
+  MatDatepickerModule, MatNativeDateModule,
   MatAutocompleteModule, MatSelectModule, MatTableModule }  from '@angular/material';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
     MatAutocompleteModule, MatTableModule, MatSortModule,
     MatTooltipModule, MatSnackBarModule, MatDialogModule,
-    MatGridListModule, MatExpansionModule,
+    MatGridListModule, MatExpansionModule, 
+    MatDatepickerModule, MatNativeDateModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
   providers: [ ClientService, ContractService, PaymentService ],

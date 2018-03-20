@@ -29,7 +29,6 @@ export class ReportComponent implements OnInit {
     this.clientService.getClientsWithContracts().subscribe(
       data => {
         this.clientsWithContracts = data;
-        console.log("clientsWithContracts ", this.clientsWithContracts)
         this.reportByCity();
         for (let client of this.clientsWithContracts) {
           client['total_payments'] = 0;
@@ -56,7 +55,6 @@ export class ReportComponent implements OnInit {
       this.clientsByCity[client.address.city] = this.clientsByCity[client.address.city] || [];
       this.clientsByCity[client.address.city].push({ client:client.name });
     });
-    console.log("this.clientsByCity ", this.clientsByCity);
     this.clientCities = Object.keys(this.clientsByCity);
     
     // Contracts
@@ -97,9 +95,7 @@ export class ReportComponent implements OnInit {
     let _data = [];
     for(let city of this.contractCities){
       _data.push(this.contractsByCity[city].length);
-      console.log("this.groupByCity[city] ", this.contractsByCity[city]);
     }
-    console.log("_data ", _data);
 
 		let data = [
 			{
@@ -117,6 +113,7 @@ export class ReportComponent implements OnInit {
           'rgba(212, 4, 2, 1)',
           'rgba(90, 53, 134, 1)',
           'rgba(245, 128, 45, 1)',
+          'rgba(128, 245, 45, 1)',
           ],
 				fill: false
 			}

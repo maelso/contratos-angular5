@@ -1,10 +1,31 @@
 <div class="contract">
+  <h1 class="page-title">Contratos</h1>
+
+  <div layout="row" class="filter-input">
+    <mat-form-field>
+      <mat-select [(ngModel)]="filterBy" placeholder="Pesquisar por:">
+        <mat-option value="creation_date">Data de criação</mat-option>
+        <mat-option value="modified_date">Data de alteração</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="filterBy">
+      <input matInput [(ngModel)]="initialDate" [matDatepicker]="picker" placeholder="Data inicial">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field *ngIf="filterBy">
+      <input matInput [(ngModel)]="finalDate" [matDatepicker]="picker2" placeholder="Data final">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <button mat-button *ngIf="filterBy" color="primary" class="addbtn" [disabled]="!initialDate && !finalDate" (click)="filterByDate()">Pesquisar</button>
+  </div>
   <div class="filter-input">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchText" placeholder="Filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="searchText" placeholder="Filtrar">
     </mat-form-field>
   </div>
-  <div layout="row" class="add-button">
+  <div class="add-button">
     <button mat-button class="addbtn" color="primary" (click)="newContract()">
       <mat-icon>add</mat-icon>Novo Contrato</button>
   </div>
