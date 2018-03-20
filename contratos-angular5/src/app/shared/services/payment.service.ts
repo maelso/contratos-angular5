@@ -13,7 +13,6 @@ export class PaymentService {
   save(payment: Payment): Observable<Payment> {
     payment.setCreationDate();
     payment.setModifiedDate();
-    console.log("SAVE PAY");
     return this.http.post<Payment>(this.apiUrl, payment);
   }
 
